@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F2F2F2;
+    overflow: hidden;
+}
+
+
+.css-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.css-header {
+    width: 730px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.css-header button{
+    width: 78px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: #F2F2F2;
+    cursor: pointer;
+}
+
+.css-form-search-bar {
+    position: relative;
+    width: 730px;
+    height: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.css-form-search-bar img {
+    position: absolute;
+    left: 32px;
+}
+
+.css-form-search-bar input {
+    position: absolute;
+    left: 80px;
+    width: 300px;
+    border: none;
+}
+
+.css-form-search-bar .css-error-msg {
+    position: absolute;
+    right: 150px;
+    visibility: hidden;
+    color: red;
+}
+
+.css-error-msg-visible {
+    visibility: visible;
+}
+
+.css-form-search-bar button {
+    position: absolute;
+    width: 106px;
+    height: 50px;
+    right: 15px;
+    background-color: #60ABFF;
+    border-radius: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.css-card {
+    width: 730px;
+    height: 444px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.css-card-picture {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 25%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.css-card-picture img {
+    width: 117px;
+    height: 117px;
+    margin-top: 60px;
+    border-radius: 50%;
+}
+
+
+.css-card-details {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 60px;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.css-card-about {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 15px;
+}
+
+.css-card-about h3 {
+    margin: 0px;
+}
+
+.css-card-about p {
+    margin-top: 20px;
+}
+
+.css-card-about .css-name-joinedDate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.css-card-about .css-name-joinedDate h1 {
+    margin: 0px;
+}
+
+
+.css-card-stats {
+    margin: 3%;
+    margin-left: 0%;
+    padding-left: 5%;
+    width: 100%;
+    height: 17%;
+    border-radius: 15px;
+    background-color: #F6F8FF;
+}
+
+.css-card-stats th {
+    text-align: left;
+}
+
+.css-card-stats td {
+    text-align: left;
+}
+
+.css-card-stats .css-stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.css-card-stats .css-stats-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.css-card-links {
+    width: 100%;
+    height: 30%;
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+        "a b"
+        "c d";
+    border-radius: 15px;
+}
+
+
+.css-card-links img {
+    width: 13.75px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.css-location {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    grid-area: a;
+}
+
+.css-twitter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    grid-area: b;
+}
+
+.css-website {
+    margin-top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    grid-area: c;
+}
+
+.css-company {
+    margin-top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    grid-area: d;
+}

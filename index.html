@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        <link rel="stylesheet" href="index.css">
+        <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+        <title>Dev-search</title>
+    </head>
+    <body>
+        <div class="css-main">
+            <div class="css-header">
+                <h2>devfinder</h2>
+                <button>DARK
+                    <img src="assets/icon-moon.svg" />
+                </button>
+            </div>
+
+            <form class="css-form-search-bar">
+                <img src="assets/icon-search.svg" alt="searchImage">
+                <input type="text" placeholder="Search GitHub username..." />
+                <div class="css-error-msg">No results</div>
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="css-card">
+                <div class="css-card-picture">
+                    <img class="js-card-profile" src="" />
+                </div>
+                <div class="css-card-details">
+                    <div class="css-card-about">
+                        <div class="css-name-joinedDate">
+                            <h1 class="js-name"></h1>
+                            <p class="js-joinedDate"></p>
+                        </div>
+                        <h3 class="js-login"></h3>
+                        <p class="js-bio"></p>
+                    </div>
+                    <table class="css-card-stats">
+                        <tr>
+                            <th>Repos</th>
+                            <th>Followers</th>
+                            <th>Following</th>
+                        </tr>
+                        <tr>
+                            <td class="js-repos"></td>
+                            <td class="js-followers"></td>
+                            <td class="js-following"></td>
+                        </tr>
+                        </table>
+                    <div class="css-card-links">
+                        <div class="css-location">
+                            <img src="assets/icon-location.svg" />
+                            <a class="js-location"></a>
+                        </div>
+                        <div class="css-twitter">
+                            <img src="assets/icon-twitter.svg" />
+                            <a class="js-twitter" href=""></a>
+                        </div>
+                        <div class="css-website">
+                            <img src="assets/icon-website.svg" />
+                            <a class="js-website" href=""></a>
+                        </div>
+                        <div class="css-company">
+                            <img src="assets/icon-company.svg" />
+                            <a class="js-company" href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
