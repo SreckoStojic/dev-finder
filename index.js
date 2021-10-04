@@ -1,110 +1,100 @@
+import { qs, formatDate } from './utils.js';
+
 // call the api for octocat username on page load event
-$(document).ready(async function(){
+document.addEventListener("DOMContentLoaded", async function(){
     const onLoadUsername = "octocat";
-    renderData(onLoadUsername);                 
+    renderData(onLoadUsername);
 });
 
 // search event
-$(".js-form-search-bar").on("submit", async function(e){
+qS(".js-form-search-bar").addEventListener("submit", async function(e){
     e.preventDefault();
     renderData(e.target.elements.searchInput.value);
-
 });
 
 // render data function
 async function renderData (searchInput) {
-    const response = await fetch(`https://api.github.com/users/${searchInput}`);
-    const statusOK = 200;
-    if(response.status === statusOK){
+    try {
+        var response = await fetch(`https://api.github.com/users/${searchInput}`);
+    } catch (error) {
+        console.error(error);
+    }
+    if(response.ok){
         const data = await response.json();
-        $(".js-error-msg").removeClass("css-error-msg-visible");
-        $(".js-card-profile").attr("src", data.avatar_url);                
-        $(".js-name").html((data.name !== null) ? `${data.name}` : `${data.login.replace('@','')}`);                         
-        $(".js-joinedDate").html(`Joined ${formatDate(data.created_at)}`);
-        $(".js-login").html(`@${data.login}`);
-        $(".js-bio").html((data.bio !== null) ? `${data.bio}` : `This profile has no bio.`);
-        $(".js-repos").html(data.public_repos);  
-        $(".js-followers").html(data.followers);
-        $(".js-following").html(data.following);
-
-        console.log(data.location)
-        console.log(data.twitter_username)
-        console.log(data.blog)
-        console.log(data.company)
+        console.log(qS(".js-error-msg"));
+        qS(".js-error-msg").classList.remove("css-error-msg-visible");
+        qS(".js-card-profile").setAttribute("src", data.avatar_url);                
+        qS(".js-name").innerHTML = (data.name !== null) ? `${data.name}` : `${data.login.replace('@','')}`;                         
+        qS(".js-joinedDate").innerHTML = `Joined ${formatDate(data.created_at)}`;
+        qS(".js-login").innerHTML = `@${data.login}`;
+        qS(".js-bio").innerHTML = (data.bio !== null) ? `${data.bio}` : `This profile has no bio.`;
+        qS(".js-repos").innerHTML = data.public_repos;  
+        qS(".js-followers").innerHTML = data.followers;
+        qS(".js-following").innerHTML = data.following;
 
         if (data.location !== null) {
-            $(".js-location").html(`${data.location}`);
-            $('.js-location-image').removeClass("css-not-available");
-            $(".js-location").removeClass("css-not-available");
+            qS(".js-location").innerHTML = `${data.location}`;
+            qS('.js-location-image').classList.remove("css-not-available");
+            qS(".js-location").classList.remove("css-not-available");
         } else {
-            $(".js-location").html(`Not Available`);
-            $('.js-location-image').addClass("css-not-available");
-            $(".js-location").addClass("css-not-available");
+            qS(".js-location").innerHTML = `Not Available`;
+            qS('.js-location-image').classList.add("css-not-available");
+            qS(".js-location").classList.add("css-not-available");
         }
 
         if (data.twitter_username !== null) {
-            $(".js-twitter").html(`${data.twitter_username}`);
-            $('.js-twitter-image').removeClass("css-not-available");
-            $(".js-twitter").removeClass("css-not-available");
+            qS(".js-twitter").innerHTML = `${data.twitter_username}`;
+            qS('.js-twitter-image').classList.remove("css-not-available");
+            qS(".js-twitter").classList.remove("css-not-available");
         } else {
-            $(".js-twitter").html(`Not Available`);
-            $('.js-twitter-image').addClass("css-not-available");
-            $(".js-twitter").addClass("css-not-available");
+            qS(".js-twitter").innerHTML = `Not Available`;
+            qS('.js-twitter-image').classList.add("css-not-available");
+            qS(".js-twitter").classList.add("css-not-available");
         }
         
         if (data.blog !== '') {
-            $(".js-website").attr("href", data.blog).html(`${data.blog}`);
-            $('.js-website-image').removeClass("css-not-available");
-            $(".js-website").removeClass("css-not-available");
+            qS(".js-website").setAttribute("href", data.blog);
+            qS(".js-website").innerHTML = `${data.blog}`;
+            qS('.js-website-image').classList.remove("css-not-available");
+            qS(".js-website").classList.remove("css-not-available");
         } else {
-            $(".js-website").html(`Not Available`);
-            $('.js-website-image').addClass("css-not-available");
-            $(".js-website").addClass("css-not-available");
+            qS(".js-website").innerHTML = `Not Available`;
+            qS('.js-website-image').classList.add("css-not-available");
+            qS(".js-website").classList.add("css-not-available");
         }
 
         if (data.company !== null) {
-            $(".js-company").attr("href", data.html_url).html(data.company);
-            $('.js-company-image').removeClass("css-not-available");
-            $(".js-company").removeClass("css-not-available");
+            qS(".js-company").setAttribute("href", data.innerHTML_url);
+            qS('.js-company').innerHTML = data.company;
+            qS('.js-company-image').classList.remove("css-not-available");
+            qS(".js-company").classList.remove("css-not-available");
         } else {
-            $(".js-company").html(`Not Available`);
-            $('.js-company-image').addClass("css-not-available");
-            $(".js-company").addClass("css-not-available");
+            qS(".js-company").innerHTML = `Not Available`;
+            qS('.js-company-image').classList.add("css-not-available");
+            qS(".js-company").classList.add("css-not-available");
         }
 
-        $(".js-search-input").val('');
+        qS(".js-search-input").value = '';
     
     } else {
-        $(".js-error-msg").addClass("css-error-msg-visible");
-        $(".js-search-input").val('');
+        qS(".js-error-msg").classList.add("css-error-msg-visible");
+        qS(".js-search-input").value = '';
     }
 }
 
 // color theme btn click event
-$(".js-toggle-theme").on("click", function() {
+qS(".js-toggle-theme").addEventListener("click", function() {
     const LIGHT = "LIGHT";
     const DARK = "DARK";
     let themeColor = LIGHT;
-    if($(".js-main").hasClass("css-main-dark") === true) {
+    if(qS(".js-main").classList.contains("css-main-dark") === true) {
         themeColor = DARK;
     }
     if (themeColor === LIGHT) {    
-        $(".js-toggle-theme-img").attr("src", 'assets/icon-sun.svg');
-        $(".js-main").addClass("css-main-dark");
+        qS(".js-toggle-theme-img").setAttribute("src", 'assets/icon-sun.svg');
+        qS(".js-main").classList.add("css-main-dark");
     } else if (themeColor === DARK) {
-        $(".js-toggle-theme-img").attr("src", 'assets/icon-moon.svg');
-        $(".js-main").removeClass("css-main-dark");
+        qS(".js-toggle-theme-img").setAttribute("src", 'assets/icon-moon.svg');
+        qS(".js-main").classList.remove("css-main-dark");
     }
 });
-
-
-// format date function
-function formatDate(date) {
-    const splitStringT = date.split("T");
-    const splitStringDash = splitStringT[0].split("-");
-    const newDate = new Date(splitStringDash[0], splitStringDash[1], splitStringDash[2]);
-    const [day, month, year] = [newDate.getDate(), newDate.getMonth(), newDate.getFullYear()];
-    const monthName = newDate.toLocaleString('default', { month: 'long' });
-
-    return `${day}  ${monthName}  ${year}`;
-}
