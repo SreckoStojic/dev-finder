@@ -7,37 +7,39 @@
         <meta name="HandheldFriendly" content="true">
         <link rel="stylesheet" href="index.css">
         <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
         <title>Dev-search</title>
     </head>
     <body>
-        <div class="css-main">
+        <div class="css-main js-main">
             <div class="css-header">
                 <h2>devfinder</h2>
-                <button>DARK
-                    <img src="assets/icon-moon.svg" />
+                <button class="css-theme-button js-toggle-theme">
+                    <img class="js-toggle-theme-img" src="assets/icon-moon.svg" />
                 </button>
             </div>
 
-            <form class="css-form-search-bar">
+            <form class="css-form-search-bar js-form-search-bar">
                 <img src="assets/icon-search.svg" alt="searchImage">
-                <input type="text" placeholder="Search GitHub username..." />
-                <div class="css-error-msg">No results</div>
-                <button type="submit">Search</button>
+                <input class="css-search-input js-search-input" name="searchInput" type="text" placeholder="Search GitHub username..." />
+                <div class="css-error-msg js-error-msg">No results</div>
+                <button class="css-search-button" type="submit">Search</button>
             </form>
 
             <div class="css-card">
-                <div class="css-card-picture">
-                    <img class="js-card-profile" src="" />
-                </div>
                 <div class="css-card-details">
-                    <div class="css-card-about">
-                        <div class="css-name-joinedDate">
-                            <h1 class="js-name"></h1>
-                            <p class="js-joinedDate"></p>
-                        </div>
-                        <h3 class="js-login"></h3>
-                        <p class="js-bio"></p>
+                    <div class="css-card-picture">
+                        <img class="js-card-profile" src="" />
                     </div>
+                    <div class="css-name-joinedDate">
+                        <h1 class="css-name js-name"></h1>
+                        <p class="css-joinedDate js-joinedDate"></p>
+                    </div>
+                    <h3 class="css-login js-login"></h3>
+                    <p class="css-bio js-bio"></p>
+                    
                     <table class="css-card-stats">
                         <tr>
                             <th>Repos</th>
@@ -52,19 +54,19 @@
                         </table>
                     <div class="css-card-links">
                         <div class="css-location">
-                            <img src="assets/icon-location.svg" />
-                            <a class="js-location"></a>
+                            <img class="js-location-image" src="assets/icon-location.svg" />
+                            <p class="js-location"></p>
                         </div>
                         <div class="css-twitter">
-                            <img src="assets/icon-twitter.svg" />
+                            <img class="js-twitter-image" src="assets/icon-twitter.svg" />
                             <a class="js-twitter" href=""></a>
                         </div>
                         <div class="css-website">
-                            <img src="assets/icon-website.svg" />
-                            <a class="js-website" href=""></a>
+                            <img class="js-website-image" src="assets/icon-website.svg" />
+                            <a class="js-website"  href=""></a>
                         </div>
                         <div class="css-company">
-                            <img src="assets/icon-company.svg" />
+                            <img class="js-company-image" src="assets/icon-company.svg" />
                             <a class="js-company" href=""></a>
                         </div>
                     </div>

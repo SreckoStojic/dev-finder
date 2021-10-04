@@ -3,12 +3,13 @@
 }
 
 body {
-    background-color: #F2F2F2;
     overflow: hidden;
+    margin: 0%;
 }
 
 
 .css-main {
+    font-family: 'Space Mono';
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -16,6 +17,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    background-color: #F2F2F2;
+}
+
+.css-main-dark {
+    background-color: #2B3442;
+    color: white;
 }
 
 .css-header {
@@ -26,7 +33,13 @@ body {
     justify-content: space-between;
 }
 
-.css-header button{
+.css-header h2 {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 38.51px;
+}
+
+.css-theme-button {
     width: 78px;
     height: 20px;
     display: flex;
@@ -35,6 +48,28 @@ body {
     border: none;
     background-color: #F2F2F2;
     cursor: pointer;
+    gap: 10px;
+}
+
+.css-theme-button::before {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.25px;
+    letter-spacing: 2.5px;
+    content: "DARK";
+}
+
+.css-main-dark .css-theme-button {
+    background-color: #2B3442;
+    color: white;
+}
+
+.css-main-dark .css-theme-button::before {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.25px;
+    letter-spacing: 2.5px;
+    content: "LIGHT";
 }
 
 .css-form-search-bar {
@@ -48,19 +83,37 @@ body {
     border-radius: 15px;
 }
 
+.css-main-dark .css-form-search-bar {
+    background-color: #1E2A47;
+    color: white;
+}
+
 .css-form-search-bar img {
     position: absolute;
     left: 32px;
 }
 
-.css-form-search-bar input {
+.css-search-input {
     position: absolute;
     left: 80px;
     width: 300px;
     border: none;
 }
 
-.css-form-search-bar .css-error-msg {
+.css-search-input::placeholder {
+    color: #4B6A9B;
+}
+
+.css-main-dark .css-search-input {
+    background-color: #1E2A47;
+    color: white;
+}
+
+.css-main-dark .css-search-input::placeholder {
+    color: white;
+}
+
+.css-error-msg {
     position: absolute;
     right: 150px;
     visibility: hidden;
@@ -71,44 +124,46 @@ body {
     visibility: visible;
 }
 
-.css-form-search-bar button {
+.css-search-button {
     position: absolute;
     width: 106px;
     height: 50px;
     right: 15px;
-    background-color: #60ABFF;
+    background-color: #0079FF;
     border-radius: 15px;
     color: white;
     border: none;
     cursor: pointer;
 }
 
+.css-search-button:hover {
+    background-color: #60ABFF;
+}
+
 .css-card {
     width: 730px;
     height: 444px;
-    display: flex;
-    flex-direction: row;
     background-color: white;
     border-radius: 15px;
 }
 
+.css-main-dark .css-card {
+    background-color: #1E2A47;
+    color: white;
+}
+
 .css-card-picture {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 25%;
-    height: 100%;
     border-radius: 15px;
+    grid-area: a;
 }
 
 .css-card-picture img {
     width: 117px;
     height: 117px;
-    margin-top: 60px;
     border-radius: 50%;
 }
 
-
+/*
 .css-card-details {
     padding-top: 20px;
     padding-left: 20px;
@@ -118,35 +173,72 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+}*/
+.css-card-details {
+    padding: 5%;
+    width: 730px;
+    height: 481px;
+    display: grid;
+    grid-template-areas: 
+        "a b b b"
+        "a c c c"
+        "a d d d"
+        "a e e e"
+        "a g g g";
 }
 
-.css-card-about {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-radius: 15px;
+.css-login {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23.7px;
+    margin-top: -15px;
+    color: #0079FF;
+    grid-area: c;
 }
 
-.css-card-about h3 {
-    margin: 0px;
+.css-bio {
+    width: 480px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    margin-top: -13px;
+    color: #4B6A9B;
+    grid-area: d;
 }
 
-.css-card-about p {
-    margin-top: 20px;
+.css-main-dark .css-bio {
+    color: white;
 }
 
-.css-card-about .css-name-joinedDate {
+.css-name-joinedDate {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #697C9A;
+    grid-area: b;
+    margin-top: -10px;
 }
 
-.css-card-about .css-name-joinedDate h1 {
+.css-main-dark .css-name-joinedDate {
+    color: white;
+}
+
+.css-name {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 38.51px;
+    /*color: #2B3442;*/
     margin: 0px;
 }
 
+.css-joinedDate {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22.22px;
+    /*color: #697C9A;*/
+    text-align: right;
+    margin: 0px;
+}
 
 .css-card-stats {
     margin: 3%;
@@ -156,14 +248,29 @@ body {
     height: 17%;
     border-radius: 15px;
     background-color: #F6F8FF;
+    grid-area: e;
+}
+
+.css-main-dark .css-card-stats {
+    background-color: #141D2F;
+    color: white;
 }
 
 .css-card-stats th {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19.25px;
+    margin-top: 20px;
     text-align: left;
+    /*color: #4B6A9B;*/
 }
 
 .css-card-stats td {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32.58px;
     text-align: left;
+    /*color: #2B3442;*/
 }
 
 .css-card-stats .css-stats-header {
@@ -179,16 +286,38 @@ body {
 }
 
 .css-card-links {
+    grid-area: g;
     width: 100%;
     height: 30%;
     display: grid;
-    gap: 20px;
+    gap: 40px;
     grid-template-areas: 
-        "a b"
-        "c d";
+        "a2 b2"
+        "c2 d2";
     border-radius: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22.22px;
+    color: #4B6A9B;
 }
 
+.css-card-links a {
+    width: 180px;
+    text-decoration: none;
+    color: #4B6A9B
+}
+
+.css-card-links a:hover {
+    text-decoration: underline;
+}
+
+.css-main-dark .css-card-links a {
+    color: white;
+}
+
+.css-main-dark .css-card-links {
+    color: white;
+}
 
 .css-card-links img {
     width: 13.75px;
@@ -200,14 +329,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    grid-area: a;
+    grid-area: a2;
 }
 
 .css-twitter {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    grid-area: b;
+    grid-area: b2;
 }
 
 .css-website {
@@ -215,7 +344,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    grid-area: c;
+    grid-area: c2;
 }
 
 .css-company {
@@ -223,5 +352,242 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    grid-area: d;
+    grid-area: d2;
+}
+
+.css-not-available {
+    color: #4B6A9B;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/*tablet*/
+@media screen and (min-width: 450px) and (max-width: 1200px) {
+    .css-header {
+        width: 573px;
+    }
+
+    .css-form-search-bar {
+        width: 573px;
+    }
+
+    .css-search-input {
+        width: 254px;
+    }
+
+    .css-card {
+        width: 573px;
+    }
+
+    .css-card-details {
+        position: relative;
+        width: 573px;
+        height: 481px;
+        display: grid;
+        grid-template-areas: 
+            "a b b b"
+            "a c c c"
+            "d d d d"
+            "e e e e"
+            "g g g g";
+    }
+
+    .css-picture {
+        grid-area: a;
+    }
+
+    .css-name-joinedDate {
+        grid-area: b;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .css-login {
+        position: absolute;
+        top: 5px;
+        grid-area: c;
+    }
+
+    .css-bio {
+        width: 493px;
+        grid-area: d;
+    }
+
+    .css-joinedDate {
+        position: absolute;
+        top: 90px;
+    }
+
+    .css-card-stats {
+        grid-area: e;
+    }
+
+    .css-card-links {
+        grid-area: g;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .css-header {
+        width: 327px;
+    }
+
+    .css-form-search-bar {
+        width: 327px;
+    }
+
+    .css-search-input {
+        width: 184px;
+    }
+
+    .css-card {
+        width: 327px;
+        height: 537px;
+    }
+
+    .css-card-details {
+        position: relative;
+        width: 327px;
+        height: 537px;
+        display: grid;
+        grid-template-areas: 
+            "a b b b"
+            "a c c c"
+            "d d d d"
+            "e e e e"
+            "g g g g";
+    }
+
+    .css-picture {
+        grid-area: a;
+    }
+
+    .css-name-joinedDate {
+        grid-area: b;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .css-login {
+        grid-area: c;
+    }
+
+    .css-bio {
+        width: 279px;
+        height: 75px;
+        grid-area: d;
+    }
+
+    .css-card-stats {
+        height: 100px;
+        grid-area: e;
+    }
+
+    .css-card-links {
+        grid-area: g;
+    }
+
+    .css-card-links {
+        margin-top: 20px;
+        gap: 10px;
+        grid-template-areas: 
+        "a2"
+        "b2"
+        "c2"
+        "d2";
+    }
+
+    .css-location {
+        height: 20px;
+        margin-top: 0px;
+    }
+
+    .css-twitter {
+        height: 20px;
+        margin-top: 0px;
+    }
+
+    .css-website {
+        height: 20px;
+        margin-top: 0px;
+    }
+
+    .css-company {
+        height: 20px;
+        margin-top: 0px;
+    }
+
+    .css-theme-button {
+        width: 89px;
+        height: 20px;
+    }
+
+    .css-search-button {
+        width: 84px;
+        height: 46px;
+    }
+
+    .css-card-picture img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    .css-name {
+        font-size: 16px;
+        line-height: 23.7px;
+    }
+
+    .css-login {
+        position: absolute;
+        top: 0px;
+        font-size: 13px;
+        line-height: 19.25px;
+    }
+
+    .css-bio {
+        font-size: 13px;
+    }
+
+    .css-joinedDate {
+        position: absolute;
+        top: 60px;
+        font-size: 13px;
+        line-height: 19.25px;
+    }
+
+    .css-card-stats th {
+        font-size: 11px;
+        line-height: 16.29px;
+        text-align: center;
+    }
+    
+    .css-card-stats td {
+        font-size: 16px;
+        line-height: 23.7px;
+        text-align: center;
+    }
+
+    .css-card-links {
+        font-size: 13px;
+        line-height: 19.25px;
+    }
+
+    .css-form-search-bar img {
+        position: absolute;
+        left: 15px;
+    }
+
+    .css-search-input {
+        position: absolute;
+        left: 45px;
+    }
+
+    .css-error-msg {
+        position: absolute;
+        top: 67px;
+        right: 125px;
+    }
 }
