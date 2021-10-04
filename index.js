@@ -1,4 +1,4 @@
-import { qs, formatDate } from './utils.js';
+import { qS, formatDate } from './utils.js';
 
 // call the api for octocat username on page load event
 document.addEventListener("DOMContentLoaded", async function(){
